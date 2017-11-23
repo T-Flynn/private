@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <base href="/">
+    <title>Sprint Bootstrap Website Design::::,</title>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/dist/index.css">
+    <link rel="shortcuticon" href="favicon.ico">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+        <a id="in" data-toggle="modal" data-target="#myModal">
+            SignIn
+        </a>
+        <a id="up" data-toggle="modal" data-target="#myModal1">
+            SignUp
+        </a>
+    </nav>
+</header>
+<main>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">SignIn</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="signInform" id="signInform" action="/signUp" method="POST">
+                        <div class="form-group">
+                            <label for="inputTel" class="col-sm-2 control-label">tel</label>
+                            <div class="col-sm-10">
+                                <input type="tel" name="phoneNum" class="form-control" id="inputTel" placeholder="telephoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="signPwd" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="validatorSignForm()">SignIn</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel1">SignUP</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="signUpform" id="signUpform" action="/signUp" method="POST">
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label">tel</label>
+                            <div class="col-sm-10">
+                                <input type="tel"
+                                       class="form-control"
+                                       id="phone"
+                                       placeholder="telephoneNumber"
+                                       name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPassword"
+                                        placeholder="Password"
+                                        name="pwd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4" class="col-sm-2 control-label">Verify</label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPassword4"
+                                        placeholder="Verify Password"
+                                        name="repwd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5" class="col-sm-2 control-label">auth code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword5" placeholder="auth code">
+                                <input type="text" class="form-control" id="auth" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="validatorForm()">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item">
+                <img class="first-slide" src="images/1.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Example headline.</h1>
+                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item active">
+                <img class="second-slide" src="images/2.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="third-slide" src="images/3.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">The Internet of Things <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">In recent year, the Internet of Things (IoT) has drawn significant research attention. IoT is considered as a part of the Internet of the future and will comprise billions of intelligent communicating ‘things’. The future of the Internet will consist of heterogeneously connected devices that will further extend the borders of the world with physical entities and virtual components. The Internet of Things (IoT) will empower the connected things with new capabilities. In this survey, the definitions, architecture, fundamental technologies, and applications of IoT are systematically reviewed. Firstly, various definitions of IoT are introduced; secondly, emerging techniques for the implementation of IoT are discussed; thirdly, some open issues related to the IoT applications are explored; finally, the major challenges which need addressing by the research community and corresponding potential solutions are investigated.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="images/content_1.jpg" class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="featurette-heading">What makes retailers so highly RFID? <span class="text-muted">RFID.</span></h2>
+                <p class="lead">Sanford Bernstein cristiano, according to analysts estimate the retailing company, by adopting the RFID, wal-mart can save $8.35 billion each year, mostly because of the purchase of artificial view does not need to save the cost of labor code. Although some analysts think $8 billion in the digital too optimistic, but undoubtedly, RFID help solve the problem: the two biggest retail commodities and loss (broken by theft and supply chain was unsettled and loss of products),now a wal-mart, stealing a loss is almost 20 billion dollars, if a legitimate business turnover can achieve this number, can in American 1,000 enterprise's list of top first 694. Research organizations estimate, This rfid technology can help to reduce the level of 25% reduction and stock.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img src="images/content_2.jpg" class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="images/content_3.jpg" class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            </div>
+        </div>
+    <div id="go-top">
+        <a></a>
+    </div>
+</main>
+<footer>
+    <section class="">
+        <div class="">
+            <section class="">
+                <div class="">
+                    <dl class="footer_first">
+                        <dt>
+                            Products
+                        </dt>
+                        <dd>
+                            <a href="#">
+                                SuperWebView
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Deep Engine
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Data Services
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Ops Services
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Outsource
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Module Store
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl class="footer_second">
+                        <dt>
+                            VIP Service
+                        </dt>
+                        <dd>
+                            <a href="#">
+                                VIP Service
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Pricing
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Multi-channel
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Priority Service
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                OnlineCourse
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Engineer Certification
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            Resources
+                        </dt>
+                        <dd>
+                            <a href="#" rel="nofollow">
+                                Docs
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                Tutorials
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                SDK Download
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                Dev Tools
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                Source Code Download
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            APICloud
+                        </dt>
+                        <dd>
+                            <a href="#" rel="nofollow">
+                                About Us
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                Terms of Service
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                Privacy Policy
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Blog
+
+                            </a>
+                        </dd>
+                    </dl>
+                    <div class="footer-right">
+                        <div class="row share">
+                            <a href="javascript:void(0)" class="share-links weixinImg"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links weiboImg"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links facebook"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links twitter"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="link-exchange-box">
+                <div class="link-exchange">
+                    <h5 class="tab">Friendlink:</h5>
+                    <h5 class="tab">hot tags</h5>
+                </div>
+            </section>
+            <section class="copyright">
+                <label>
+                    ©2014-2016&nbsp;APICloud&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank"
+                                                                       href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"
+                                                                       rel="nofollow">京ICP备14027692号</a>&nbsp;&nbsp;&nbsp;&nbsp;京ICP证151131号&nbsp;&nbsp;&nbsp;&nbsp;<a
+                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020063"
+                        target="_blank" rel="nofollow">京公网安备 11010802020063号</a>
+                </label>
+            </section>
+        </div>
+    </section>
+</footer>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendor/validator/validator.min.js"></script>
+<script src="javascripts/dist/firstobj.js"></script>
+</body>
+</html>

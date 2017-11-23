@@ -1,0 +1,18 @@
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script>
+    $(function(){
+        $.get('http://127.0.0.1:3009/getinfo', function(result){
+            $("#name").html(result['name']);
+            $("#phone").html(result['phone']);
+        }, 'jsonp');
+    });
+    /*function callbackFunction(result, methodName)
+    {
+        for(var i in result) {
+            $("#name").html(result['name']);
+            $("#phone").html(result['phone']);
+        }
+    }*/
+</script>
+Name: <span id="name"></span><br />
+Phone: <span id="phone"></span><br />

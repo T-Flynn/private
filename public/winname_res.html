@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>window.name跨域取数据</title>
+		
+	</head>
+	<body>
+		Company: <span id="company1"></span><br /> 
+		Address: <span id="jstreet1"></span><br />
+		Employees 1: <span id="employees1"></span><br />
+		
+		<script>
+		var obj_1 = eval ("(" + window.name + ")");
+		document.getElementById("company1").innerHTML=obj_1.company;
+		document.getElementById("jstreet1").innerHTML=obj_1.address;
+		document.getElementById("employees1").innerHTML=obj_1.employees[0].firstName + " " + obj_1.employees[0].lastName ;
+		
+		</script>
+	</body>
+</html>

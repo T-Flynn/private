@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>window.name跨域取数据</title>
+		
+	</head>
+	<body>
+	    <script>
+		 function getData(){
+			 var iframe = document.getElementById('otherdomain');
+			 iframe.src='winname_res.html';
+
+			 setTimeout(function(){
+				 window.location = 'winname_res.html';
+				 window.name = iframe.contentWindow.name;
+			 },1000);
+		 }
+		</script>
+		<iframe id="otherdomain" src="http://127.0.0.1:3009/use_window_name.html" style="display:none" onload="getData()"></iframe>
+	</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--<base href="/">-->
+    <title>Sprint Bootstrap Website Design::::,</title>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/dist/index.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">关于</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <button id="in" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+       登录
+    </button>
+    <button id="up" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+        注册
+    </button>
+</header>
+<main>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="signInform" id="signInform" action="/signUp" method="POST">
+                        <div class="form-group">
+                            <label for="inputTel" class="col-sm-2 control-label">电话</label>
+                            <div class="col-sm-10">
+                                <input type="tel" name="phoneNum" class="form-control" id="inputTel" placeholder="手机号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="signPwd" class="form-control" id="inputPassword3" placeholder="6~20位密码">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" onclick="validatorSignForm()">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel1">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="signUpform" id="signUpform" action="/signUp" method="POST">
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label">电话</label>
+                            <div class="col-sm-10">
+                                <input type="tel"
+                                       class="form-control"
+                                       id="phone"
+                                       placeholder="手机号"
+                                       name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPassword"
+                                        placeholder="6~20位密码"
+                                        name="pwd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4" class="col-sm-2 control-label">确认密码</label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPassword4"
+                                        placeholder="确认密码"
+                                        name="repwd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5" class="col-sm-2 control-label">验证码</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword5" placeholder="验证码">
+                                <input type="text" class="form-control" id="auth" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" onclick="validatorForm()">注册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="go-top">
+        <a></a>
+    </div>
+</main>
+<footer>
+    <section class="">
+        <div class="">
+            <section class="">
+                <div class="">
+                    <dl class="footer_first">
+                        <dt>
+                            APICloud产品
+                        </dt>
+                        <dd>
+                            <a href="">
+                                SuperWebView
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="">
+                                Deep Engine
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                数据云
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                运营云
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                APP定制
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                模块Store
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            VIP服务
+                        </dt>
+                        <dd>
+                            <a href="#">
+                                VIP服务
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                云服务价格
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                渠道打包
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                优先技术支持
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                培训课程
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                认证工程师
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            资源
+                        </dt>
+                        <dd>
+                            <a href="#" rel="nofollow">
+                                文档
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                视频教程
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                SDK下载
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                开发工具
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#">
+                                源码下载
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            APICloud
+                        </dt>
+                        <dd>
+                            <a href="#" rel="nofollow">
+                                关于我们
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                服务条款
+                            </a>
+                        </dd>
+                        <dd>
+                            <a target="_blank" href="#" rel="nofollow">
+                                隐私条款
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="#">
+                                Blog
+                            </a>
+                        </dd>
+                    </dl>
+                    <div class="footer-right">
+                        <div class="row share">
+                            <a href="javascript:void(0)" class="share-links weixinImg"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links weiboImg"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links facebook"></a>
+                            <a rel="nofollow" href="#" target="_blank" class="share-links twitter"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="link-exchange-box">
+                <div class="link-exchange">
+                    <h5 class="tab">友情链接</h5>
+                    <h5 class="tab">热门标签</h5>
+                </div>
+            </section>
+            <section class="copyright">
+                <label>
+                    ©2014-2016&nbsp;APICloud&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">京ICP备14027692号</a>&nbsp;&nbsp;&nbsp;&nbsp;京ICP证151131号&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020063" target="_blank" rel="nofollow">京公网安备 11010802020063号</a>
+                </label>
+            </section>
+        </div>
+    </section>
+</footer>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendor/validator/validator.min.js"></script>
+<script>
+    function validatorForm() {
+        var ret = true;
+        if (!validator.isMobilePhone($("#phone").val(), "zh-CN")) {
+            ret = false;
+            alert("The phone number is not correct");
+            $("#phone").focus();
+            return false;
+        }
+        if (!validator.isLength($("#inputPassword").val(), {min: 6, max: 20})) {
+            ret = false;
+            alert("The password should be between 6 and 20 letters");
+            $("#inputPassword").focus();
+            return false;
+        }
+        if ($("#inputPassword").val() !== $("#inputPassword4").val()) {
+            ret = false;
+            alert("The two passwords you typed do not match");
+            return false;
+        }
+        if (ret) {
+            signUp();
+        }
+
+        function signUp() {
+            var para = $("#signUpform").serialize();
+            $.ajax({
+                url: '',
+                type: 'POST',
+                async: true,
+                data: para,
+                success: function (res) {
+
+                }
+            });
+            alert(para);
+        }
+    }
+    function validatorSignForm() {
+        var ret = true;
+        if (!validator.isMobilePhone($("#inputTel").val(), "zh-CN")) {
+            ret = false;
+            alert("The phone number is not correct");
+            $("#inputTel").focus();
+            return false;
+        }
+        if (!validator.isLength($("#inputPassword3").val(), {min: 6, max: 20})) {
+            ret = false;
+            alert("The password should be between 6 and 20 letters");
+            $("#inputPassword3").focus();
+            return false;
+        }
+        if (ret) {
+            signUp();
+        }
+        function signUp() {
+            var para = $("#signInform").serialize();
+            $.ajax({
+                url: '',
+                type: 'POST',
+                async: true,
+                data: para,
+                success: function (res) {
+
+                }
+            });
+            alert(para);
+        }
+    }
+    $(window).scroll(function() {
+        // 当滚动条距窗口超过80px时
+        if($(window).scrollTop() >= 80){
+            $('#go-top').fadeIn(300);
+        }
+        else{
+            $('#go-top').fadeOut(300);
+        }
+    });
+    $('#go-top').click(function(){
+        //当点击图片时执行动画  滚动条距顶部距离为0px
+        $('html,body').animate({scrollTop: '0px'}, 300);});
+</script>
+</body>
+</html>
